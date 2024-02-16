@@ -1,7 +1,7 @@
 # console-v2
 # A useful console extend tool for font-end developer.
 
-`console-pic` 是一个可以在控制台中输出带有样式的 SVG 图片的拓展工具。
+`console-v2` 是一个可以在控制台中输出带有样式的 SVG 图片的拓展工具。
 
 ## 安装
 
