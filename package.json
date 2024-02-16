@@ -1,0 +1,25 @@
+{
+  "name": "console-v2",
+  "version": "1.0.0",
+  "description": "An useful console tool for font-end developer.",
+  "main": "./lib/index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethwillupto10000/console-v2.git"
+  },
+  "keywords": [
+    "console",
+    "console-v2",
+    "console v2"
+  ],
+  "author": "Neo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ethwillupto10000/console-v2/issues"
+  },
+  "homepage": "https://github.com/ethwillupto10000/console-v2#readme",
+  "dependencies": {
+  }
+}
