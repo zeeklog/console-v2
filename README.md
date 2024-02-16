@@ -19,6 +19,9 @@ yarn add console-v2
 ```
 
 # Usage
+
+## console.svg(svg)
+
 ```javascript
 // main.js
 import console from 'console-v2';
