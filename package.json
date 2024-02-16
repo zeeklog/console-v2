@@ -1,6 +1,6 @@
 {
   "name": "console-v2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A useful console tool for font-end developer.",
   "main": "./lib/index.js",
   "scripts": {

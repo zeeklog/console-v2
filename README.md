@@ -56,6 +56,11 @@ console.svg(
 );
 
 ```
+
+## console.img(link)
+```javascript
+console.img('https://cdn.jsdelivr.net/gh/u3u/u3u@main/uPic/5ab9c69c922b0.gif')
+```
 # License
 - MIT License
 
