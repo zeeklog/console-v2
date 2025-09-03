@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Console-v2 功能演示</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            background-color: #fafafa;
+        }
+        .section h2 {
+            color: #555;
+            margin-top: 0;
+        }
+        .demo-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .demo-button:hover {
+            background: #0056b3;
+        }
+        .demo-button.success { background: #28a745; }
+        .demo-button.warning { background: #ffc107; color: #212529; }
+        .demo-button.danger { background: #dc3545; }
+        .demo-button.info { background: #17a2b8; }
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #dee2e6;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .feature-card h3 {
+            color: #495057;
+            margin-top: 0;
+        }
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+        .feature-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #f1f3f4;
+        }
+        .feature-list li:before {
+            content: "✓ ";
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Console-v2 增强版日志工具</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 30px;">
+            一个功能强大的前端开发控制台工具，支持彩色、图片、多格式日志输出
+        </p>
+
+        <div class="section">
+            <h2>🎨 彩色日志功能</h2>
+            <p>支持丰富的颜色和样式，让日志更加美观易读</p>
+            <button class="demo-button" onclick="demoColors()">演示彩色日志</button>
+            <button class="demo-button success" onclick="demoSuccess()">成功日志</button>
+            <button class="demo-button warning" onclick="demoWarning()">警告日志</button>
+            <button class="demo-button danger" onclick="demoError()">错误日志</button>
+            <button class="demo-button info" onclick="demoInfo()">信息日志</button>
+        </div>
+
+        <div class="section">
+            <h2>🖼️ 图片日志功能</h2>
+            <p>在控制台中显示图片，支持单张、批量、网格等多种模式</p>
+            <button class="demo-button" onclick="demoImage()">单张图片</button>
+            <button class="demo-button" onclick="demoImageBatch()">批量图片</button>
+            <button class="demo-button" onclick="demoImageGrid()">图片网格</button>
+        </div>
+
+        <div class="section">
+            <h2>🎭 SVG 功能</h2>
+            <p>支持SVG图形、图标、进度条、图表等丰富的可视化元素</p>
+            <button class="demo-button" onclick="demoSVG()">基础SVG</button>
+            <button class="demo-button" onclick="demoSVGIcons()">SVG图标</button>
+            <button class="demo-button" onclick="demoSVGProgress()">进度条</button>
+            <button class="demo-button" onclick="demoSVGChart()">图表</button>
+        </div>
+
+        <div class="section">
+            <h2>📊 格式化工具</h2>
+            <p>提供表格、进度条、时间戳、分组等格式化功能</p>
+            <button class="demo-button" onclick="demoTable()">数据表格</button>
+            <button class="demo-button" onclick="demoProgress()">进度条</button>
+            <button class="demo-button" onclick="demoTimestamp()">时间戳</button>
+            <button class="demo-button" onclick="demoGroup()">分组日志</button>
+        </div>
+
+        <div class="section">
+            <h2>🎯 组合使用示例</h2>
+            <p>展示如何组合使用各种功能创建复杂的日志输出</p>
+            <button class="demo-button" onclick="demoCombined()">组合演示</button>
+            <button class="demo-button" onclick="demoPerformance()">性能监控</button>
+        </div>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h3>🎨 颜色系统</h3>
+                <ul class="feature-list">
+                    <li>16种预定义颜色</li>
+                    <li>自定义颜色支持</li>
+                    <li>背景色和渐变</li>
+                    <li>文字样式组合</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>🖼️ 图片功能</h3>
+                <ul class="feature-list">
+                    <li>单张图片显示</li>
+                    <li>批量图片加载</li>
+                    <li>图片网格布局</li>
+                    <li>自适应尺寸</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>🎭 SVG 支持</h3>
+                <ul class="feature-list">
+                    <li>自定义SVG图形</li>
+                    <li>预定义图标库</li>
+                    <li>进度条组件</li>
+                    <li>图表生成器</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <h3>📊 格式化工具</h3>
+                <ul class="feature-list">
+                    <li>数据表格显示</li>
+                    <li>进度条组件</li>
+                    <li>时间戳格式化</li>
+                    <li>分组日志管理</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>💻 使用方法</h2>
+            <div class="code-block">
+// 导入工具
+import console from './lib/index.js';
+
+// 彩色日志
+console.log('%c红色文字', console.color(console.colors.red));
+console.success('成功消息');
+
+// 图片日志
+await console.img('https://example.com/image.jpg', { width: 200, height: 100 });
+
+// SVG功能
+console.svgIcon('star', 32, console.colors.orange);
+console.svgProgressBar(75);
+
+// 格式化工具
+console.table(data, { title: '数据表' });
+console.progress(65, 100);
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        // 导入Console-v2工具
+        import console from '../lib/index.js';
+        
+        // 将console挂载到window对象，供按钮事件使用
+        window.consoleV2 = console;
+        
+        // 彩色日志演示
+        window.demoColors = function() {
+            console.group('🎨 彩色日志演示');
+            console.log('%c这是红色文字', console.color(console.colors.red));
+            console.log('%c这是绿色背景', console.bg(console.colors.green, console.colors.white));
+            console.log('%c这是蓝色渐变背景', console.gradient('linear-gradient(45deg, #ff6b6b, #4ecdc4)', console.colors.white));
+            console.groupEnd();
+        };
+
+        // 成功日志演示
+        window.demoSuccess = function() {
+            console.success('✅ 操作成功完成！');
+        };
+
+        // 警告日志演示
+        window.demoWarning = function() {
+            console.warning('⚠️ 这是一个警告信息');
+        };
+
+        // 错误日志演示
+        window.demoError = function() {
+            console.error('❌ 发生了一个错误');
+        };
+
+        // 信息日志演示
+        window.demoInfo = function() {
+            console.info('ℹ️ 这是一条信息提示');
+        };
+
+        // 图片演示
+        window.demoImage = async function() {
+            try {
+                await console.img('https://picsum.photos/300/200', {
+                    title: '随机图片示例',
+                    width: 300,
+                    height: 200,
+                    fit: 'cover'
+                });
+            } catch (error) {
+                console.warning('图片加载失败，可能是网络问题');
+            }
+        };
+
+        // 批量图片演示
+        window.demoImageBatch = async function() {
+            const imageUrls = [
+                'https://picsum.photos/100/100?random=1',
+                'https://picsum.photos/100/100?random=2',
+                'https://picsum.photos/100/100?random=3'
+            ];
+            
+            try {
+                await console.imgBatch(imageUrls, {
+                    maxConcurrent: 2,
+                    showProgress: true
+                });
+            } catch (error) {
+                console.warning('批量图片加载失败');
+            }
+        };
+
+        // 图片网格演示
+        window.demoImageGrid = async function() {
+            const imageUrls = [
+                'https://picsum.photos/80/80?random=4',
+                'https://picsum.photos/80/80?random=5',
+                'https://picsum.photos/80/80?random=6',
+                'https://picsum.photos/80/80?random=7',
+                'https://picsum.photos/80/80?random=8',
+                'https://picsum.photos/80/80?random=9'
+            ];
+            
+            try {
+                await console.imgGrid(imageUrls, {
+                    columns: 3,
+                    spacing: 10,
+                    maxWidth: 300
+                });
+            } catch (error) {
+                console.warning('图片网格加载失败');
+            }
+        };
+
+        // SVG演示
+        window.demoSVG = function() {
+            console.svg(`
+                <svg viewBox="0 0 200 100" width="200" height="100">
+                    <rect width="200" height="100" fill="#4ecdc4"/>
+                    <text x="100" y="50" text-anchor="middle" fill="white" font-size="16">Hello SVG!</text>
+                </svg>
+            `);
+        };
+
+        // SVG图标演示
+        window.demoSVGIcons = function() {
+            console.svgIcon('star', 32, console.colors.orange, { title: '星星图标' });
+            console.svgIcon('heart', 32, console.colors.red, { title: '爱心图标' });
+            console.svgIcon('check', 32, console.colors.green, { title: '检查图标' });
+        };
+
+        // SVG进度条演示
+        window.demoSVGProgress = function() {
+            console.svgProgressBar(75, { width: 300, height: 25 });
+        };
+
+        // SVG图表演示
+        window.demoSVGChart = function() {
+            const chartData = [23, 45, 67, 89, 12, 34];
+            console.svgChart(chartData, { 
+                type: 'bar', 
+                title: '销售数据图表',
+                width: 400, 
+                height: 200 
+            });
+        };
+
+        // 表格演示
+        window.demoTable = function() {
+            const userData = [
+                { name: '张三', age: 25, city: '北京', score: 95 },
+                { name: '李四', age: 30, city: '上海', score: 88 },
+                { name: '王五', age: 28, city: '广州', score: 92 }
+            ];
+            
+            console.table(userData, { 
+                title: '用户信息表',
+                showIndex: true,
+                maxWidth: 60
+            });
+        };
+
+        // 进度条演示
+        window.demoProgress = function() {
+            console.progress(65, 100, { 
+                width: 40,
+                showPercentage: true,
+                showNumbers: true
+            });
+        };
+
+        // 时间戳演示
+        window.demoTimestamp = function() {
+            console.timeLog('这是一条带时间戳的日志');
+        };
+
+        // 分组日志演示
+        window.demoGroup = function() {
+            console.group('详细信息', false);
+            console.log('这是分组内的日志');
+            console.log('可以包含多条信息');
+            console.groupEnd();
+        };
+
+        // 组合演示
+        window.demoCombined = function() {
+            const titleStyle = console.color(console.colors.purple, [console.styles.bold, console.styles.large]);
+            console.log(`%c${console.timestamp()} - 系统状态报告`, titleStyle);
+            
+            const systemStatus = [
+                { service: 'Web服务器', status: '运行中', uptime: '15天' },
+                { service: '数据库', status: '运行中', uptime: '30天' },
+                { service: '缓存服务', status: '维护中', uptime: '2小时' }
+            ];
+            
+            console.table(systemStatus, { title: '系统服务状态' });
+            
+            systemStatus.forEach(item => {
+                const iconName = item.status === '运行中' ? 'check' : 'warning';
+                const iconColor = item.status === '运行中' ? console.colors.success : console.colors.warning;
+                
+                console.svgIcon(iconName, 16, iconColor, { 
+                    title: `${item.service}: ${item.status}` 
+                });
+            });
+        };
+
+        // 性能监控演示
+        window.demoPerformance = function() {
+            const performanceData = [85, 92, 78, 95, 88, 91, 87, 94, 89, 93];
+            console.svgChart(performanceData, { 
+                type: 'bar', 
+                title: '页面性能得分',
+                width: 500, 
+                height: 150 
+            });
+            
+            const avgScore = performanceData.reduce((a, b) => a + b, 0) / performanceData.length;
+            console.success(`平均性能得分: ${avgScore.toFixed(1)}`);
+            
+            if (avgScore >= 90) {
+                console.success('性能表现优秀！');
+            } else if (avgScore >= 80) {
+                console.warning('性能表现良好，有改进空间');
+            } else {
+                console.error('性能需要优化');
+            }
+        };
+
+        console.log('🚀 Console-v2 已加载完成！');
+        console.log('💡 点击上方按钮体验各种功能');
+    </script>
+</body>
+</html>
